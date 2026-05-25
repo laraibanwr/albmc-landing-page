@@ -8,7 +8,7 @@ export const COMPANY = {
   teamSize: 70,
   projectsCount: 500,
   phone: '+971 52 682 3602',
-  whatsapp: '971526823602',
+  whatsapp: '971586868156',
   email: 'asad@albmc.com',
   website: 'www.albmc.com',
   address: 'Salim Al Mazroua – 212, Al Nahda, Dubai, UAE',
