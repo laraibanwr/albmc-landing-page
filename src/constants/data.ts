@@ -1,0 +1,153 @@
+export const COMPANY = {
+  name: 'ALASAD ALLAMEA',
+  brandName: 'ALBMC',
+  fullName: 'ALASAD ALLAMEA BUILDING MAINTENANCE AND CLEANING L.L.C S.O.C',
+  tagline: 'Your trusted partner for complete building maintenance and professional cleaning services across Dubai & Sharjah — residential, commercial, and industrial.',
+  established: 2025,
+  experience: 15,
+  teamSize: 70,
+  projectsCount: 500,
+  phone: '+971 52 682 3602',
+  whatsapp: '971526823602',
+  email: 'asad@albmc.com',
+  website: 'www.albmc.com',
+  address: 'Salim Al Mazroua – 212, Al Nahda, Dubai, UAE',
+  serviceAreas: ['Dubai — All Districts', 'Sharjah — Commercial & Residential', 'UAE-wide for AMC & Large Projects'],
+};
+
+export const STATS = [
+  { value: 15, suffix: '+', label: 'Years Experience' },
+  { value: 70, suffix: '+', label: 'Team Members' },
+  { value: 500, suffix: '+', label: 'Projects Done' },
+  { value: 3, suffix: '', label: 'Major Landmarks' },
+];
+
+export const SERVICES = [
+  {
+    id: 'plumbing',
+    icon: 'Droplets',
+    title: 'Plumbing',
+    description: 'Complete plumbing solutions for residential and commercial properties with emergency support.',
+    features: ['Leak Detection & Fixing', 'Pipeline Installation', 'Bathroom Fittings', 'Drainage Solutions', 'Emergency Repairs'],
+    accent: 'purple',
+  },
+  {
+    id: 'electrical',
+    icon: 'Zap',
+    title: 'Electrical',
+    description: 'Safe, certified electrical services meeting all UAE safety compliance standards.',
+    features: ['Wiring & Rewiring', 'Panel Upgrades', 'Lighting Installation', 'Fault Diagnosis', 'Safety Compliance'],
+    accent: 'orange',
+  },
+  {
+    id: 'ac',
+    icon: 'Wind',
+    title: 'AC Maintenance',
+    description: 'Full AC service, repair, and annual maintenance programs for all brands.',
+    features: ['Servicing & Cleaning', 'Gas Refilling', 'Fault Repair', 'Annual AMC Plans', 'All AC Brands'],
+    accent: 'purple',
+  },
+  {
+    id: 'carpentry',
+    icon: 'Hammer',
+    title: 'Carpentry',
+    description: 'Custom woodwork, joinery, and interior furniture solutions done right.',
+    features: ['Custom Joinery', 'Furniture Repair', 'Door & Cabinet Fitting', 'Interior Woodwork', 'On-site Installations'],
+    accent: 'orange',
+  },
+  {
+    id: 'cleaning',
+    icon: 'Sparkles',
+    title: 'Deep Cleaning',
+    description: 'Professional cleaning for every space — inside, outside, and in between.',
+    features: ['Deep & Routine Cleans', 'Post-Construction', 'Common Area Upkeep', 'Eco-Friendly Products', 'All Property Types'],
+    accent: 'purple',
+  },
+  {
+    id: 'building',
+    icon: 'Building2',
+    title: 'Full Building Maintenance',
+    description: 'End-to-end facility management for buildings of every scale.',
+    features: ['Preventive Maintenance', 'Emergency Response', 'Scheduled Visits', 'All Trades Covered', 'AMC Contracts'],
+    accent: 'orange',
+  },
+];
+
+export const WHY_CHOOSE = [
+  { icon: 'ShieldCheck', title: 'Licensed & Compliant', description: 'Fully licensed operations with safety compliance across all service lines in the UAE.' },
+  { icon: 'Clock', title: 'On-Time Delivery', description: 'We commit to schedules and deliver quality work within agreed timeframes, every time.' },
+  { icon: 'PhoneCall', title: '24/7 Emergency Response', description: 'Round-the-clock availability for urgent breakdowns and critical maintenance situations.' },
+  { icon: 'FileText', title: 'AMC Contracts Available', description: 'Annual Maintenance Contracts for predictable costs and priority service access.' },
+  { icon: 'Users', title: 'Trained & Verified Staff', description: '70+ uniformed, background-verified, professionally trained technicians on every job.' },
+  { icon: 'Award', title: '15+ Years of Excellence', description: 'Decades of expertise delivering premium facility services across the UAE.' },
+];
+
+export const WHO_WE_SERVE = [
+  {
+    title: 'Apartments & Villas',
+    description: 'Regular maintenance and cleaning for residential communities and private homes.',
+    image: 'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&q=75',
+    icon: 'Home',
+  },
+  {
+    title: 'Offices',
+    description: 'Uninterrupted facility services keeping workplaces safe, clean, and fully operational.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=75',
+    icon: 'Briefcase',
+  },
+  {
+    title: 'Malls',
+    description: 'High-frequency cleaning and technical maintenance for large retail environments.',
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=75',
+    icon: 'ShoppingBag',
+  },
+  {
+    title: 'Factories',
+    description: 'Industrial-grade maintenance and safety-compliant cleaning for manufacturing facilities.',
+    image: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=75',
+    icon: 'Factory',
+  },
+];
+
+export const HOW_IT_WORKS = [
+  { step: '01', icon: 'PhoneCall', title: 'Contact Us', description: 'Reach out via call, WhatsApp, or email. Our team responds within the hour, any time of day.' },
+  { step: '02', icon: 'ClipboardList', title: 'Site Assessment', description: 'Our expert visits your property to assess requirements and recommend the right maintenance plan.' },
+  { step: '03', icon: 'Wrench', title: 'Service Begins', description: 'Our certified team arrives uniformed and on schedule — delivering quality work, every time.' },
+];
+
+export const CLIENTS = [
+  {
+    name: 'Sharjah Chamber of Commerce',
+    location: 'Sharjah, UAE',
+    description: "Delivered full-scope building maintenance and cleaning for one of the UAE's most prominent institutional landmarks — a flagship project at scale.",
+    icon: 'Landmark',
+  },
+  {
+    name: 'Dubai Trade Center',
+    location: 'Dubai, UAE',
+    description: "Ongoing facility maintenance services supporting one of the region's most active business and international events destinations.",
+    icon: 'Building',
+  },
+  {
+    name: 'Sharjah Expo',
+    location: 'Sharjah, UAE',
+    description: 'High-standard cleaning and maintenance support for large-scale exhibition and event venues across multiple halls and facilities.',
+    icon: 'Globe',
+  },
+];
+
+export const AMC_FEATURES = [
+  { icon: 'CalendarCheck', title: 'Scheduled Visits', description: 'Regular preventive maintenance on your preferred schedule.' },
+  { icon: 'Zap', title: 'Priority Response', description: 'Faster emergency turnaround — AMC clients always come first.' },
+  { icon: 'PiggyBank', title: 'Cost Control', description: 'Predictable annual budgeting with no surprise repair bills.' },
+  { icon: 'UserCheck', title: 'Dedicated Manager', description: 'A single point of contact managing all your facility needs.' },
+];
+
+export const NAV_LINKS = [
+  { label: 'Home', href: '#hero' },
+  { label: 'About', href: '#about' },
+  { label: 'Services', href: '#services' },
+  { label: 'Why Us', href: '#why-us' },
+  { label: 'Clients', href: '#clients' },
+  { label: 'Contact', href: '#contact' },
+];
