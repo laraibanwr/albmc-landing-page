@@ -115,12 +115,12 @@ export default function Contact() {
           </div>
 
           {/* Right: Form */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-            <h3 className="font-heading font-bold text-2xl text-gray-900 mb-6">Request a Free Quote</h3>
+          <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
+            <h3 className="font-heading font-bold text-2xl text-gray-900 mb-4">Request a Free Quote</h3>
             
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -128,13 +128,13 @@ export default function Contact() {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
                   placeholder="John Doe"
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Phone / WhatsApp</label>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone / WhatsApp</label>
                 <input 
                   type="tel" 
                   id="phone" 
@@ -142,20 +142,20 @@ export default function Contact() {
                   required
                   value={formData.phone}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
                   placeholder="+971 50 123 4567"
                 />
               </div>
 
               <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1.5">Service Required</label>
+                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
                 <select 
                   id="service" 
                   name="service" 
                   required
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
                 >
                   <option value="" disabled>Select a service...</option>
                   <option value="Plumbing">Plumbing</option>
@@ -170,21 +170,21 @@ export default function Contact() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1.5">Message (Optional)</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
                 <textarea 
                   id="message" 
                   name="message" 
-                  rows={4}
+                  rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white resize-none"
+                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white resize-none"
                   placeholder="Tell us more about your requirements..."
                 />
               </div>
 
               <button 
                 type="submit" 
-                className="w-full mt-2 bg-[#4B58FF] text-white py-3.5 rounded-xl font-semibold hover:bg-[#3542E0] transition-colors duration-200 flex items-center justify-center gap-2"
+                className="w-full bg-[#4B58FF] text-white py-3 rounded-xl font-semibold hover:bg-[#3542E0] transition-colors duration-200 flex items-center justify-center gap-2"
               >
                 Send via WhatsApp <MessageCircle size={18} />
               </button>

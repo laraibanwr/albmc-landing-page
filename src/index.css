@@ -14,6 +14,7 @@
   --color-brand-orange-light: #FFF0E8;
   --color-brand-dark: #0D0E1A;
   --color-brand-card: #1A1D3B;
+  --breakpoint-lg: 64.0625rem;
 
   --color-background: #ffffff;
   --color-foreground: #111827;

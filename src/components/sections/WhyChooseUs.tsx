@@ -4,7 +4,7 @@ import { WHY_CHOOSE } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function WhyChooseUs() {
-  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section id="why-us" className="bg-[#4B58FF] relative overflow-hidden py-14 md:py-20">
@@ -19,7 +19,7 @@ export default function WhyChooseUs() {
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {WHY_CHOOSE.map((item, index) => {
-            const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[item.icon] || LucideIcons.CheckCircle;
+            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[item.icon] || LucideIcons.CheckCircle;
             
             return (
               <div 

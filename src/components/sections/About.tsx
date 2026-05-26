@@ -2,8 +2,8 @@ import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
 
 export default function About() {
-  const [imgRef, imgVisible] = useInView();
-  const [textRef, textVisible] = useInView({ threshold: 0.2 });
+  const [imgRef, imgVisible] = useInView<HTMLDivElement>();
+  const [textRef, textVisible] = useInView<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <section id="about" className="bg-white py-14 md:py-20">
@@ -20,7 +20,7 @@ export default function About() {
               loading="lazy" 
               className="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-lg" 
             />
-            <div className="absolute -bottom-6 -right-6 lg:-right-10 bg-[#4B58FF] text-white px-6 py-4 rounded-2xl shadow-xl flex flex-col items-center justify-center">
+            <div className="absolute -bottom-6 right-4 lg:-right-10 bg-[#4B58FF] text-white px-6 py-4 rounded-2xl shadow-xl flex flex-col items-center justify-center">
               <span className="text-4xl font-heading font-extrabold leading-none mb-1">15+</span>
               <span className="text-xs font-semibold tracking-wide uppercase">Years of Excellence</span>
             </div>

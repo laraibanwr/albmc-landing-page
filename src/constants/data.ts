@@ -119,7 +119,7 @@ export const CLIENTS = [
   {
     name: 'Sharjah Chamber of Commerce',
     location: 'Sharjah, UAE',
-    description: "Delivered full-scope building maintenance and cleaning for one of the UAE's most prominent institutional landmarks — a flagship project at scale.",
+    description: "Delivered full-scope building maintenance and cleaning for one of the UAE’s leading institutional landmarks — a flagship project.",
     icon: 'Landmark',
   },
   {

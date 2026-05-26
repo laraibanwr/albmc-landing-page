@@ -6,15 +6,15 @@ export default function Stats() {
   const [ref, isVisible] = useInView({ threshold: 0.2 });
 
   return (
-    <section ref={ref} className="bg-[#1A1D3B] py-14">
+    <section ref={ref} className="bg-[#F0F1FF] py-14 border-t border-b border-[#4B58FF]/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/10 text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:divide-x divide-gray-300/70 text-center">
           {STATS.map((stat, index) => (
-            <div key={index} className={`flex flex-col items-center justify-center ${index > 1 ? 'pt-8 lg:pt-0' : ''}`}>
-              <div className="text-5xl font-extrabold text-white font-heading">
+            <div key={index} className="flex flex-col items-center justify-center">
+              <div className="text-5xl font-extrabold text-[#4B58FF] font-heading">
                 {isVisible ? <AnimatedCounter target={stat.value} suffix={stat.suffix} /> : '0'}
               </div>
-              <div className="text-gray-400 text-sm mt-2 font-medium tracking-wide">
+              <div className="text-gray-600 text-sm mt-2 font-medium tracking-wide">
                 {stat.label}
               </div>
             </div>

@@ -4,7 +4,7 @@ import { HOW_IT_WORKS } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function HowItWorks() {
-  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section className="bg-[#F0F1FF] py-14 md:py-20">
@@ -19,7 +19,7 @@ export default function HowItWorks() {
           
           <div ref={ref} className="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
             {HOW_IT_WORKS.map((step, index) => {
-              const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[step.icon] || LucideIcons.CheckCircle;
+              const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[step.icon] || LucideIcons.CheckCircle;
               
               return (
                 <div 

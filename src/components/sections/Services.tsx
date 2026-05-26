@@ -4,7 +4,7 @@ import { SERVICES } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function Services() {
-  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section id="services" className="bg-gray-50 py-14 md:py-20">
@@ -17,7 +17,7 @@ export default function Services() {
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {SERVICES.map((service, index) => {
-            const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[service.icon] || LucideIcons.Wrench;
+            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[service.icon] || LucideIcons.Wrench;
             const isPurple = service.accent === 'purple';
             const bgClass = isPurple ? 'bg-[#F0F1FF]' : 'bg-[#FFF0E8]';
             const textClass = isPurple ? 'text-[#4B58FF]' : 'text-[#FF751F]';

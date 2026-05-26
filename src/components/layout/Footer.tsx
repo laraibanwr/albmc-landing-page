@@ -8,11 +8,11 @@ export default function Footer() {
       <div className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Col 1 */}
-          <div>
-            <span className="font-heading font-extrabold text-2xl block mb-4">
-              <span className="text-[#4B58FF]">AL</span><span className="text-[#FF751F]">BMC</span>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+            <span className="font-heading font-extrabold text-2xl text-white block mb-4">
+              {COMPANY.name}
             </span>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+            <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm mx-auto lg:mx-0">
               {COMPANY.tagline}
             </p>
             <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#4B58FF] font-medium text-sm hover:text-white transition-colors duration-200">
@@ -21,9 +21,9 @@ export default function Footer() {
           </div>
 
           {/* Col 2 */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-white font-heading font-bold text-base mb-4">Services</h3>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 items-center lg:items-start">
               {SERVICES.map(service => (
                 <li key={service.id}>
                   <a href="#services" className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
@@ -35,9 +35,9 @@ export default function Footer() {
           </div>
 
           {/* Col 3 */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-white font-heading font-bold text-base mb-4">Contact</h3>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 items-center lg:items-start">
               <li className="text-gray-400 text-sm">{COMPANY.address}</li>
               <li className="text-gray-400 text-sm">
                 <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors duration-200">{COMPANY.phone}</a>
@@ -49,9 +49,9 @@ export default function Footer() {
           </div>
 
           {/* Col 4 */}
-          <div>
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             <h3 className="text-white font-heading font-bold text-base mb-4">Quick Links</h3>
-            <ul className="flex flex-col gap-3">
+            <ul className="flex flex-col gap-3 items-center lg:items-start">
               {NAV_LINKS.map(link => (
                 <li key={link.label}>
                   <a href={link.href} className="text-gray-400 hover:text-white text-sm transition-colors duration-200">
@@ -64,7 +64,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm text-center md:text-left">
             &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
           </p>
           <span className="bg-[#F0F1FF] text-[#4B58FF] text-xs px-3 py-1.5 rounded-full font-medium">

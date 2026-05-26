@@ -4,7 +4,7 @@ import { CLIENTS } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function Clients() {
-  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section id="clients" className="bg-white py-14 md:py-20">
@@ -20,7 +20,7 @@ export default function Clients() {
 
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">
           {CLIENTS.map((client, index) => {
-            const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[client.icon] || LucideIcons.Building;
+            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[client.icon] || LucideIcons.Building;
             
             return (
               <div 

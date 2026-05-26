@@ -4,7 +4,7 @@ import { WHO_WE_SERVE } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function WhoWeServe() {
-  const [ref, isVisible] = useInView({ threshold: 0.1 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <section id="who-we-serve" className="bg-white py-14 md:py-20">
@@ -16,7 +16,7 @@ export default function WhoWeServe() {
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
           {WHO_WE_SERVE.map((item, index) => {
-            const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[item.icon] || LucideIcons.Building;
+            const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[item.icon] || LucideIcons.Building;
 
             return (
               <div 

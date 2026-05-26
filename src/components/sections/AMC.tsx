@@ -4,7 +4,7 @@ import { AMC_FEATURES } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function AMC() {
-  const [ref, isVisible] = useInView({ threshold: 0.2 });
+  const [ref, isVisible] = useInView<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <section className="bg-[#0D0E1A] relative overflow-hidden py-14 md:py-20">
@@ -36,7 +36,7 @@ export default function AMC() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {AMC_FEATURES.map((feature, index) => {
-              const Icon = (LucideIcons as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[feature.icon] || LucideIcons.CheckCircle;
+              const Icon = (LucideIcons as unknown as Record<string, React.ComponentType<{ size?: number; className?: string }>>)[feature.icon] || LucideIcons.CheckCircle;
               
               return (
                 <div 
