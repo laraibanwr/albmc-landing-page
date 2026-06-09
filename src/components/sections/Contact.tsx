@@ -37,9 +37,9 @@ export default function Contact() {
           
           {/* Left: Contact Info */}
           <div>
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-8">
               {COMPANY.serviceAreas.map(area => (
-                <span key={area} className="bg-[#4B58FF] text-white text-xs px-3 py-1.5 rounded-full font-medium">
+                <span key={area} className="bg-[#4B58FF] text-white text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full font-medium whitespace-nowrap">
                   {area}
                 </span>
               ))}
