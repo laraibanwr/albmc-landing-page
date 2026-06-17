@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import SectionHeader from '../ui/SectionHeader';
-import { COMPANY } from '../../constants/data';
-import { MapPin, Phone, MessageCircle, Mail, Globe, AlertCircle } from 'lucide-react';
+import { COMPANY, SERVICES_OPTIONS } from '../../constants/data';
+import { MapPin, Phone, MessageCircle, Mail, AlertCircle, ChevronDown } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -10,6 +11,19 @@ export default function Contact() {
     service: '',
     message: ''
   });
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData(prev => ({
@@ -20,7 +34,12 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = `Hi, I'm ${formData.name}. I need help with ${formData.service || 'maintenance'}. \nPhone: ${formData.phone}\nMessage: ${formData.message}`;
+    if (!formData.service) {
+      setShowError(true);
+      return;
+    }
+    setShowError(false);
+    const text = `Hi, I'm ${formData.name}. I need help with ${formData.service}. \nPhone: ${formData.phone}\nMessage: ${formData.message}`;
     const encodedText = encodeURIComponent(text);
     window.open(`https://wa.me/${COMPANY.whatsapp}?text=${encodedText}`, '_blank');
   };
@@ -36,76 +55,66 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
           
           {/* Left: Contact Info */}
-          <div>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-8">
-              {COMPANY.serviceAreas.map(area => (
-                <span key={area} className="bg-[#4B58FF] text-white text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full font-medium whitespace-nowrap">
-                  {area}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-col">
-              <div className="flex items-start gap-4 py-4 border-b border-gray-200">
-                <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
-                  <MapPin size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Office Address</div>
-                  <div className="text-gray-900 font-semibold text-sm mt-0.5">{COMPANY.address}</div>
-                </div>
+          <div className="flex flex-col justify-between h-full">
+            <div>
+              <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-8">
+                {COMPANY.serviceAreas.map(area => (
+                  <span key={area} className="bg-[#4B58FF] text-white text-[11px] sm:text-xs px-2.5 py-1.5 sm:px-3 sm:py-1.5 rounded-full font-medium whitespace-nowrap">
+                    {area}
+                  </span>
+                ))}
               </div>
 
-              <div className="flex items-start gap-4 py-4 border-b border-gray-200">
-                <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
-                  <Phone size={20} />
+              <div className="flex flex-col">
+                <div className="flex items-start gap-4 py-[22px] border-b border-gray-200">
+                  <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
+                    <MapPin size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Office Address</div>
+                    <div className="text-gray-900 font-semibold text-sm mt-0.5">{COMPANY.address}</div>
+                  </div>
                 </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Phone Number</div>
-                  <div className="text-gray-900 font-semibold text-sm mt-0.5">
-                    <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
+
+                <div className="flex items-start gap-4 py-[22px] border-b border-gray-200">
+                  <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
+                    <Phone size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Phone Number</div>
+                    <div className="text-gray-900 font-semibold text-sm mt-0.5">
+                      <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 py-[22px] border-b border-gray-200">
+                  <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
+                    <MessageCircle size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">WhatsApp</div>
+                    <div className="text-gray-900 font-semibold text-sm mt-0.5">
+                      <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 py-[22px]">
+                  <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
+                    <Mail size={20} />
+                  </div>
+                  <div>
+                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Email</div>
+                    <div className="text-gray-900 font-semibold text-sm mt-0.5">
+                      <a href={`mailto:${COMPANY.email}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.email}</a>
+                    </div>
                   </div>
                 </div>
               </div>
+          </div>
 
-              <div className="flex items-start gap-4 py-4 border-b border-gray-200">
-                <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
-                  <MessageCircle size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">WhatsApp</div>
-                  <div className="text-gray-900 font-semibold text-sm mt-0.5">
-                    <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 py-4 border-b border-gray-200">
-                <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
-                  <Mail size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Email</div>
-                  <div className="text-gray-900 font-semibold text-sm mt-0.5">
-                    <a href={`mailto:${COMPANY.email}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.email}</a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4 py-4">
-                <div className="w-10 h-10 bg-[#F0F1FF] rounded-xl flex items-center justify-center text-[#4B58FF] flex-shrink-0">
-                  <Globe size={20} />
-                </div>
-                <div>
-                  <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Website</div>
-                  <div className="text-gray-900 font-semibold text-sm mt-0.5">
-                    <a href={`https://${COMPANY.website}`} target="_blank" rel="noreferrer" className="hover:text-[#4B58FF] transition-colors">{COMPANY.website}</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 bg-[#FF751F]/10 border border-[#FF751F]/20 rounded-2xl p-4 flex items-center gap-3">
+          <div className="mt-6 bg-[#FF751F]/10 border border-[#FF751F]/20 rounded-2xl p-4 flex items-center gap-3">
               <AlertCircle size={24} className="text-[#FF751F] flex-shrink-0" />
               <div>
                 <p className="text-[#FF751F] font-bold text-sm">24/7 Emergency Response Available</p>
@@ -147,26 +156,61 @@ export default function Contact() {
                 />
               </div>
 
-              <div>
-                <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
-                <select 
-                  id="service" 
-                  name="service" 
-                  required
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
+              <div className="relative" ref={dropdownRef}>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
+                <button
+                  type="button"
+                  onClick={() => setDropdownOpen(!dropdownOpen)}
+                  className={`w-full flex items-center justify-between px-4 py-2.5 border rounded-xl text-sm focus:outline-none transition-all duration-200 bg-white ${
+                    showError 
+                      ? 'border-red-500 focus:ring-2 focus:ring-red-500 text-red-500 font-semibold' 
+                      : 'border-gray-200 focus:ring-2 focus:ring-[#4B58FF] text-gray-900'
+                  }`}
                 >
-                  <option value="" disabled>Select a service...</option>
-                  <option value="Plumbing">Plumbing</option>
-                  <option value="Electrical">Electrical</option>
-                  <option value="AC Maintenance">AC Maintenance</option>
-                  <option value="Carpentry">Carpentry</option>
-                  <option value="Deep Cleaning">Deep Cleaning</option>
-                  <option value="Full Building Maintenance">Full Building Maintenance</option>
-                  <option value="AMC Contract">AMC Contract</option>
-                  <option value="Other">Other</option>
-                </select>
+                  <span className={formData.service ? "text-gray-900" : "text-gray-400"}>
+                    {formData.service || "Select a service..."}
+                  </span>
+                  <ChevronDown 
+                    size={18} 
+                    className={`text-gray-400 transition-transform duration-200 ${dropdownOpen ? 'rotate-180 text-[#4B58FF]' : ''}`} 
+                  />
+                </button>
+
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                      className="absolute left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-lg z-50 overflow-hidden py-1.5"
+                    >
+                      <div className="max-h-60 overflow-y-auto overscroll-y-contain custom-scrollbar pr-1">
+                        {SERVICES_OPTIONS.map((option) => (
+                          <button
+                            key={option}
+                            type="button"
+                            onClick={() => {
+                              setFormData(prev => ({ ...prev, service: option }));
+                              setDropdownOpen(false);
+                              setShowError(false);
+                            }}
+                            className={`w-full text-left px-4 py-2 text-sm transition-colors duration-150 flex items-center justify-between ${
+                              formData.service === option 
+                                ? 'bg-[#F0F1FF] text-[#4B58FF] font-semibold' 
+                                : 'text-gray-700 hover:bg-gray-50'
+                            }`}
+                          >
+                            {option}
+                          </button>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                {showError && (
+                  <p className="text-red-500 text-xs mt-1">Please select a service</p>
+                )}
               </div>
 
               <div>

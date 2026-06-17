@@ -7,8 +7,8 @@ export const COMPANY = {
   experience: 15,
   teamSize: 70,
   projectsCount: 500,
-  phone: '+971 55 395 5921',
-  whatsapp: '971553955921',
+  phone: '+971 52 737 3974',
+  whatsapp: '971527373974',
   email: 'asad@albmc.com',
   website: 'www.albmc.com',
   address: 'Salim Al Mazroua – 212, Al Nahda, Dubai, UAE',
@@ -150,4 +150,15 @@ export const NAV_LINKS = [
   { label: 'Why Us', href: '#why-us' },
   { label: 'Clients', href: '#clients' },
   { label: 'Contact', href: '#contact' },
+];
+
+export const SERVICES_OPTIONS = [
+  "Plumbing",
+  "Electrical",
+  "AC Maintenance",
+  "Carpentry",
+  "Deep Cleaning",
+  "Full Building Maintenance",
+  "AMC Contract",
+  "Other"
 ];

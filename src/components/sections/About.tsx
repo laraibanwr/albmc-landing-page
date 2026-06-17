@@ -15,7 +15,7 @@ export default function About() {
             className={`relative transition-all duration-1000 ease-out ${imgVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
           >
             <img 
-              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=75" 
+              src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1200&q=85" 
               alt="ALBMC professional maintenance team" 
               loading="lazy" 
               className="w-full h-96 lg:h-[500px] object-cover rounded-3xl shadow-lg" 
