@@ -59,9 +59,9 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${menuOpen ? 'bg-transparent border-b-transparent shadow-none' : 'bg-[#ffffff] shadow-sm border-b border-gray-100'}`}>
+      <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-200 ${menuOpen ? 'bg-transparent border-b-transparent shadow-none' : 'bg-[#ffffff] shadow-sm border-b border-gray-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <a href="#" className={`flex items-center h-full transition-opacity duration-100 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} onClick={() => setMenuOpen(false)}>
+          <a href="#" className={`flex items-center h-full transition-opacity ${menuOpen ? 'opacity-0 pointer-events-none duration-100' : 'opacity-100 duration-200'}`} onClick={() => setMenuOpen(false)}>
             <img src="/logo.svg" alt="ALBMC Logo" className="h-full w-auto" />
           </a>
 
@@ -100,7 +100,7 @@ export default function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.18 }}
+            transition={{ duration: 0.2 }}
             className="fixed inset-0 bg-[#0D0E1A]/95 z-40 md:hidden flex flex-col items-center justify-center"
             onClick={() => setMenuOpen(false)}
           >
