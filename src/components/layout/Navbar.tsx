@@ -1,25 +1,26 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { NAV_LINKS } from '../../constants/data';
+import { NAV_LINKS, NAVBAR_CONTENT } from '../../constants/data';
 
 const menuContainerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.04,
-      delayChildren: 0.08,
+      staggerChildren: 0.05,
+      delayChildren: 0.05,
     }
   }
 };
 
 const menuItemVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 0, y: 10 },
   show: {
     opacity: 1,
+    y: 0,
     transition: {
-      duration: 0.2,
-      ease: "easeOut"
+      duration: 0.25,
+      ease: [0.215, 0.61, 0.355, 1.0]
     }
   }
 };
@@ -60,7 +61,7 @@ export default function Navbar() {
     <>
       <nav className={`fixed top-0 left-0 right-0 z-50 h-16 transition-all duration-300 ${menuOpen ? 'bg-transparent border-b-transparent shadow-none' : 'bg-[#ffffff] shadow-sm border-b border-gray-100'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <a href="#" className={`flex items-center h-full transition-opacity duration-300 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} onClick={() => setMenuOpen(false)}>
+          <a href="#" className={`flex items-center h-full transition-opacity duration-100 ${menuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} onClick={() => setMenuOpen(false)}>
             <img src="/logo.svg" alt="ALBMC Logo" className="h-full w-auto" />
           </a>
 
@@ -76,7 +77,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:block">
             <a href="#contact" className="bg-[#4B58FF] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#3542E0] transition-colors duration-200">
-              Get a Quote
+              {NAVBAR_CONTENT.ctaButton}
             </a>
           </div>
 
@@ -100,7 +101,7 @@ export default function Navbar() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.18 }}
-            className="fixed inset-0 bg-[#0D0E1A]/65 backdrop-blur-md z-40 md:hidden flex flex-col items-center justify-center"
+            className="fixed inset-0 bg-[#0D0E1A]/95 z-40 md:hidden flex flex-col items-center justify-center"
             onClick={() => setMenuOpen(false)}
           >
             <motion.div
@@ -117,7 +118,7 @@ export default function Navbar() {
                   key={link.label}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="text-3xl font-heading font-bold text-white/80 hover:text-white transition-all duration-200 hover:scale-105"
+                  className="text-3xl font-heading font-bold text-white/80 hover:text-white transition-colors duration-150"
                 >
                   {link.label}
                 </motion.a>

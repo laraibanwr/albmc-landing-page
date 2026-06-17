@@ -13,6 +13,10 @@ export const COMPANY = {
   website: 'www.albmc.com',
   address: 'Salim Al Mazroua – 212, Al Nahda, Dubai, UAE',
   serviceAreas: ['Dubai — All Districts', 'Sharjah — Commercial & Residential', 'UAE-wide for AMC & Large Projects'],
+  aboutParagraphs: [
+    "ALASAD ALLAMEA BUILDING MAINTENANCE AND CLEANING L.L.C S.O.C is a premier facility management and maintenance provider operating across Dubai and Sharjah. With over 15 years of industry experience, we specialize in delivering comprehensive building solutions tailored to the unique needs of residential, commercial, and industrial properties.",
+    "Our commitment is simple: we provide reliable, high-quality, and cost-effective maintenance services. From emergency plumbing repairs to annual maintenance contracts (AMC), our fully licensed operations ensure that your facilities remain safe, compliant, and operational year-round."
+  ],
 };
 
 export const STATS = [
@@ -162,3 +166,106 @@ export const SERVICES_OPTIONS = [
   "AMC Contract",
   "Other"
 ];
+
+export const ABOUT_CHIPS = [
+  'In-House & Outsourced',
+  'Certified Technicians',
+  'Supervisor On-Call'
+];
+
+export const HERO_HIGHLIGHTS = [
+  '24/7 Available',
+  'AMC Available',
+  '15+ Yrs Experience',
+  '70+ Team Members'
+];
+
+export const CLIENTS_SUBTITLE = "From massive exhibition centers to high-end residential towers, our team has proven experience handling the UAE's most demanding facility needs.";
+
+export const AMC_DESCRIPTION = "Take the guesswork out of property maintenance. Our flexible AMC packages provide guaranteed preventive care, priority emergency response, and significant cost savings over ad-hoc repairs. Perfect for commercial buildings, residential towers, and multi-property portfolios.";
+
+export const HERO_CONTENT = {
+  badge: "Professional Services",
+  titlePart1: "Dubai's Most Trusted",
+  titleHighlight: "Building Maintenance",
+  titlePart2: "& Cleaning Partner",
+  ctaQuote: "Get a Free Quote",
+  ctaWhatsapp: "WhatsApp Us",
+  servingArea: "Serving Dubai & Sharjah",
+  servingTypes: "Residential, Commercial & Industrial",
+  scrollText: "SCROLL"
+};
+
+export const CONTACT_CONTENT = {
+  sectionLabel: "CONTACT US",
+  sectionTitle: "Let's Maintain Your Property Together",
+  labelAddress: "Office Address",
+  labelPhone: "Phone Number",
+  labelWhatsapp: "WhatsApp",
+  labelEmail: "Email",
+  emergencyTitle: "24/7 Emergency Response Available",
+  emergencySubtitle: "Call our hotline directly for immediate assistance.",
+  formTitle: "Request a Free Quote",
+  fieldFullName: "Full Name",
+  placeholderFullName: "John Doe",
+  fieldPhone: "Phone / WhatsApp",
+  placeholderPhone: "+971 50 123 4567",
+  fieldService: "Service Required",
+  placeholderService: "Select a service...",
+  errorService: "Please select a service",
+  fieldMessage: "Message (Optional)",
+  placeholderMessage: "Tell us more about your requirements...",
+  submitButton: "Send via WhatsApp"
+};
+
+export const AMC_CONTENT = {
+  sectionLabel: "AMC",
+  sectionTitle: "Annual Maintenance Contracts",
+  ctaButton: "Get AMC Pricing"
+};
+
+export const ABOUT_CONTENT = {
+  sectionLabel: "WHO WE ARE",
+  sectionTitle: "Built on Trust, Delivered with Excellence",
+  badgeValue: "15+",
+  badgeLabel: "Years of Excellence"
+};
+
+export const SERVICES_CONTENT = {
+  sectionLabel: "WHAT WE DO",
+  sectionTitle: "Our Core Services",
+  sectionSubtitle: "From plumbing to full building management — one trusted partner for it all."
+};
+
+export const CLIENTS_CONTENT = {
+  sectionLabel: "OUR CLIENTS",
+  sectionTitle: "Trusted by UAE's Leading Institutions"
+};
+
+export const WHY_CHOOSE_CONTENT = {
+  sectionLabel: "WHY CHOOSE US",
+  sectionTitle: "Why Industry Leaders Trust ALBMC"
+};
+
+export const WHO_WE_SERVE_CONTENT = {
+  sectionLabel: "WHO WE SERVE",
+  sectionTitle: "Every Property Type, One Reliable Partner"
+};
+
+export const HOW_IT_WORKS_CONTENT = {
+  sectionLabel: "HOW IT WORKS",
+  sectionTitle: "Getting Started Is Simple"
+};
+
+export const NAVBAR_CONTENT = {
+  ctaButton: "Get a Quote"
+};
+
+export const FOOTER_CONTENT = {
+  servicesTitle: "Services",
+  contactTitle: "Contact",
+  linksTitle: "Quick Links",
+  licenseBadge: "Licensed & Certified in UAE",
+  whatsappUs: "WhatsApp Us",
+  rightsReserved: "All rights reserved."
+};

@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { CLIENTS } from '../../constants/data';
+import { CLIENTS, CLIENTS_SUBTITLE, CLIENTS_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function Clients() {
@@ -10,12 +10,12 @@ export default function Clients() {
     <section id="clients" className="bg-white py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
-          label="OUR CLIENTS" 
-          title="Trusted by UAE's Leading Institutions" 
+          label={CLIENTS_CONTENT.sectionLabel} 
+          title={CLIENTS_CONTENT.sectionTitle} 
         />
         
         <p className="text-center text-gray-500 max-w-xl mx-auto mt-4">
-          From massive exhibition centers to high-end residential towers, our team has proven experience handling the UAE's most demanding facility needs.
+          {CLIENTS_SUBTITLE}
         </p>
 
         <div ref={ref} className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-12">

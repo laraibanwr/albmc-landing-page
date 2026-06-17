@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { AMC_FEATURES } from '../../constants/data';
+import { AMC_FEATURES, AMC_DESCRIPTION, AMC_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function AMC() {
@@ -20,17 +20,17 @@ export default function AMC() {
             <SectionHeader 
               light={true} 
               align="left" 
-              label="AMC" 
-              title="Annual Maintenance Contracts" 
+              label={AMC_CONTENT.sectionLabel} 
+              title={AMC_CONTENT.sectionTitle} 
             />
             <p className="text-gray-300 text-base leading-relaxed mt-6 max-w-lg">
-              Take the guesswork out of property maintenance. Our flexible AMC packages provide guaranteed preventive care, priority emergency response, and significant cost savings over ad-hoc repairs. Perfect for commercial buildings, residential towers, and multi-property portfolios.
+              {AMC_DESCRIPTION}
             </p>
             <a 
               href="#contact" 
               className="inline-block bg-[#FF751F] text-white px-8 py-3.5 rounded-full font-semibold hover:bg-[#e66a1c] transition-colors duration-200 mt-8"
             >
-              Get AMC Pricing
+              {AMC_CONTENT.ctaButton}
             </a>
           </div>
 

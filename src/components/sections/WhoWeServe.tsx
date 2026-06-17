@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { WHO_WE_SERVE } from '../../constants/data';
+import { WHO_WE_SERVE, WHO_WE_SERVE_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function WhoWeServe() {
@@ -10,8 +10,8 @@ export default function WhoWeServe() {
     <section id="who-we-serve" className="bg-white py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
-          label="WHO WE SERVE" 
-          title="Every Property Type, One Reliable Partner" 
+          label={WHO_WE_SERVE_CONTENT.sectionLabel} 
+          title={WHO_WE_SERVE_CONTENT.sectionTitle} 
         />
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">

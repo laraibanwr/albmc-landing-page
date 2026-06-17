@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { HOW_IT_WORKS } from '../../constants/data';
+import { HOW_IT_WORKS, HOW_IT_WORKS_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function HowItWorks() {
@@ -10,8 +10,8 @@ export default function HowItWorks() {
     <section className="bg-[#F0F1FF] py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
-          label="HOW IT WORKS" 
-          title="Getting Started Is Simple" 
+          label={HOW_IT_WORKS_CONTENT.sectionLabel} 
+          title={HOW_IT_WORKS_CONTENT.sectionTitle} 
         />
 
         <div className="relative mt-16">

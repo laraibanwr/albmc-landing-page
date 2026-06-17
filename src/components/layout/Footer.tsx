@@ -1,4 +1,4 @@
-import { COMPANY, SERVICES, NAV_LINKS } from '../../constants/data';
+import { COMPANY, SERVICES, NAV_LINKS, FOOTER_CONTENT } from '../../constants/data';
 import { MessageCircle } from 'lucide-react';
 
 export default function Footer() {
@@ -15,14 +15,14 @@ export default function Footer() {
             <p className="text-gray-400 text-sm leading-relaxed mb-6 max-w-sm mx-auto lg:mx-0">
               {COMPANY.tagline}
             </p>
-            <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#4B58FF] font-medium text-sm hover:text-white transition-colors duration-200">
-              <MessageCircle size={16} /> WhatsApp Us
+            <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" aria-label={`${FOOTER_CONTENT.whatsappUs} (opens in a new tab)`} className="inline-flex items-center gap-2 text-[#4B58FF] font-medium text-sm hover:text-white transition-colors duration-200">
+              <MessageCircle size={16} /> {FOOTER_CONTENT.whatsappUs}
             </a>
           </div>
 
           {/* Col 2 */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h3 className="text-white font-heading font-bold text-base mb-4">Services</h3>
+            <h3 className="text-white font-heading font-bold text-base mb-4">{FOOTER_CONTENT.servicesTitle}</h3>
             <ul className="flex flex-col gap-3 items-center lg:items-start">
               {SERVICES.map(service => (
                 <li key={service.id}>
@@ -36,21 +36,21 @@ export default function Footer() {
 
           {/* Col 3 */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h3 className="text-white font-heading font-bold text-base mb-4">Contact</h3>
+            <h3 className="text-white font-heading font-bold text-base mb-4">{FOOTER_CONTENT.contactTitle}</h3>
             <ul className="flex flex-col gap-3 items-center lg:items-start">
               <li className="text-gray-400 text-sm">{COMPANY.address}</li>
               <li className="text-gray-400 text-sm">
-                <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-white transition-colors duration-200">{COMPANY.phone}</a>
+                <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} aria-label={`Call ALBMC hotline at ${COMPANY.phone}`} className="hover:text-white transition-colors duration-200">{COMPANY.phone}</a>
               </li>
               <li className="text-gray-400 text-sm">
-                <a href={`mailto:${COMPANY.email}`} className="hover:text-white transition-colors duration-200">{COMPANY.email}</a>
+                <a href={`mailto:${COMPANY.email}`} aria-label={`Send an email to ALBMC at ${COMPANY.email}`} className="hover:text-white transition-colors duration-200">{COMPANY.email}</a>
               </li>
             </ul>
           </div>
 
           {/* Col 4 */}
           <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            <h3 className="text-white font-heading font-bold text-base mb-4">Quick Links</h3>
+            <h3 className="text-white font-heading font-bold text-base mb-4">{FOOTER_CONTENT.linksTitle}</h3>
             <ul className="flex flex-col gap-3 items-center lg:items-start">
               {NAV_LINKS.map(link => (
                 <li key={link.label}>
@@ -65,10 +65,10 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} {COMPANY.name}. All rights reserved.
+            &copy; {new Date().getFullYear()} {COMPANY.name}. {FOOTER_CONTENT.rightsReserved}
           </p>
           <span className="bg-[#F0F1FF] text-[#4B58FF] text-xs px-3 py-1.5 rounded-full font-medium">
-            Licensed & Certified in UAE
+            {FOOTER_CONTENT.licenseBadge}
           </span>
         </div>
       </div>

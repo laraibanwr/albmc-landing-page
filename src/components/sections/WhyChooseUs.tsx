@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { WHY_CHOOSE } from '../../constants/data';
+import { WHY_CHOOSE, WHY_CHOOSE_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function WhyChooseUs() {
@@ -13,8 +13,8 @@ export default function WhyChooseUs() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeader 
           light={true} 
-          label="WHY CHOOSE US" 
-          title="Why Industry Leaders Trust ALBMC" 
+          label={WHY_CHOOSE_CONTENT.sectionLabel} 
+          title={WHY_CHOOSE_CONTENT.sectionTitle} 
         />
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">

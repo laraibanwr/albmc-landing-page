@@ -1,6 +1,6 @@
 import { useInView } from '../../hooks/useInView';
 import SectionHeader from '../ui/SectionHeader';
-import { SERVICES } from '../../constants/data';
+import { SERVICES, SERVICES_CONTENT } from '../../constants/data';
 import * as LucideIcons from 'lucide-react';
 
 export default function Services() {
@@ -10,9 +10,9 @@ export default function Services() {
     <section id="services" className="bg-gray-50 py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
-          label="WHAT WE DO" 
-          title="Our Core Services" 
-          subtitle="From plumbing to full building management — one trusted partner for it all." 
+          label={SERVICES_CONTENT.sectionLabel} 
+          title={SERVICES_CONTENT.sectionTitle} 
+          subtitle={SERVICES_CONTENT.sectionSubtitle} 
         />
 
         <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">

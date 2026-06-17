@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import SectionHeader from '../ui/SectionHeader';
-import { COMPANY, SERVICES_OPTIONS } from '../../constants/data';
+import { COMPANY, SERVICES_OPTIONS, CONTACT_CONTENT } from '../../constants/data';
 import { MapPin, Phone, MessageCircle, Mail, AlertCircle, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -48,8 +48,8 @@ export default function Contact() {
     <section id="contact" className="bg-gray-50 py-14 md:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeader 
-          label="CONTACT US" 
-          title="Let's Maintain Your Property Together" 
+          label={CONTACT_CONTENT.sectionLabel} 
+          title={CONTACT_CONTENT.sectionTitle} 
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
@@ -71,7 +71,7 @@ export default function Contact() {
                     <MapPin size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Office Address</div>
+                    <div className="text-xs text-gray-600 font-semibold uppercase tracking-wide">{CONTACT_CONTENT.labelAddress}</div>
                     <div className="text-gray-900 font-semibold text-sm mt-0.5">{COMPANY.address}</div>
                   </div>
                 </div>
@@ -81,7 +81,7 @@ export default function Contact() {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Phone Number</div>
+                    <div className="text-xs text-gray-600 font-semibold uppercase tracking-wide">{CONTACT_CONTENT.labelPhone}</div>
                     <div className="text-gray-900 font-semibold text-sm mt-0.5">
                       <a href={`tel:${COMPANY.phone.replace(/[^0-9+]/g, '')}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
                     </div>
@@ -93,7 +93,7 @@ export default function Contact() {
                     <MessageCircle size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">WhatsApp</div>
+                    <div className="text-xs text-gray-600 font-semibold uppercase tracking-wide">{CONTACT_CONTENT.labelWhatsapp}</div>
                     <div className="text-gray-900 font-semibold text-sm mt-0.5">
                       <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noreferrer" className="hover:text-[#4B58FF] transition-colors">{COMPANY.phone}</a>
                     </div>
@@ -105,7 +105,7 @@ export default function Contact() {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-gray-400 font-medium uppercase tracking-wide">Email</div>
+                    <div className="text-xs text-gray-600 font-semibold uppercase tracking-wide">{CONTACT_CONTENT.labelEmail}</div>
                     <div className="text-gray-900 font-semibold text-sm mt-0.5">
                       <a href={`mailto:${COMPANY.email}`} className="hover:text-[#4B58FF] transition-colors">{COMPANY.email}</a>
                     </div>
@@ -117,19 +117,19 @@ export default function Contact() {
           <div className="mt-6 bg-[#FF751F]/10 border border-[#FF751F]/20 rounded-2xl p-4 flex items-center gap-3">
               <AlertCircle size={24} className="text-[#FF751F] flex-shrink-0" />
               <div>
-                <p className="text-[#FF751F] font-bold text-sm">24/7 Emergency Response Available</p>
-                <p className="text-gray-600 text-xs mt-0.5">Call our hotline directly for immediate assistance.</p>
+                <p className="text-[#FF751F] font-bold text-sm">{CONTACT_CONTENT.emergencyTitle}</p>
+                <p className="text-gray-600 text-xs mt-0.5">{CONTACT_CONTENT.emergencySubtitle}</p>
               </div>
             </div>
           </div>
 
           {/* Right: Form */}
           <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
-            <h3 className="font-heading font-bold text-2xl text-gray-900 mb-4">Request a Free Quote</h3>
+            <h3 className="font-heading font-bold text-2xl text-gray-900 mb-4">{CONTACT_CONTENT.formTitle}</h3>
             
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{CONTACT_CONTENT.fieldFullName}</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -138,12 +138,12 @@ export default function Contact() {
                   value={formData.name}
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
-                  placeholder="John Doe"
+                  placeholder={CONTACT_CONTENT.placeholderFullName}
                 />
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone / WhatsApp</label>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">{CONTACT_CONTENT.fieldPhone}</label>
                 <input 
                   type="tel" 
                   id="phone" 
@@ -152,23 +152,27 @@ export default function Contact() {
                   value={formData.phone}
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white"
-                  placeholder="+971 50 123 4567"
+                  placeholder={CONTACT_CONTENT.placeholderPhone}
                 />
               </div>
 
               <div className="relative" ref={dropdownRef}>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Service Required</label>
+                <label id="service-select-label" className="block text-sm font-medium text-gray-700 mb-1">{CONTACT_CONTENT.fieldService}</label>
                 <button
                   type="button"
+                  id="service-select-button"
                   onClick={() => setDropdownOpen(!dropdownOpen)}
+                  aria-haspopup="listbox"
+                  aria-expanded={dropdownOpen}
+                  aria-labelledby="service-select-label"
                   className={`w-full flex items-center justify-between px-4 py-2.5 border rounded-xl text-sm focus:outline-none transition-all duration-200 bg-white ${
                     showError 
                       ? 'border-red-500 focus:ring-2 focus:ring-red-500 text-red-500 font-semibold' 
                       : 'border-gray-200 focus:ring-2 focus:ring-[#4B58FF] text-gray-900'
                   }`}
                 >
-                  <span className={formData.service ? "text-gray-900" : "text-gray-400"}>
-                    {formData.service || "Select a service..."}
+                  <span className={formData.service ? "text-gray-900" : "text-gray-500"}>
+                    {formData.service || CONTACT_CONTENT.placeholderService}
                   </span>
                   <ChevronDown 
                     size={18} 
@@ -185,11 +189,17 @@ export default function Contact() {
                       transition={{ duration: 0.15, ease: "easeOut" }}
                       className="absolute left-0 right-0 mt-2 bg-white border border-gray-100 rounded-xl shadow-lg z-50 overflow-hidden py-1.5"
                     >
-                      <div className="max-h-60 overflow-y-auto overscroll-y-contain custom-scrollbar pr-1">
+                      <div 
+                        role="listbox"
+                        aria-labelledby="service-select-label"
+                        className="max-h-60 overflow-y-auto overscroll-y-contain custom-scrollbar pr-1"
+                      >
                         {SERVICES_OPTIONS.map((option) => (
                           <button
                             key={option}
                             type="button"
+                            role="option"
+                            aria-selected={formData.service === option}
                             onClick={() => {
                               setFormData(prev => ({ ...prev, service: option }));
                               setDropdownOpen(false);
@@ -209,12 +219,12 @@ export default function Contact() {
                   )}
                 </AnimatePresence>
                 {showError && (
-                  <p className="text-red-500 text-xs mt-1">Please select a service</p>
+                  <p className="text-red-500 text-xs mt-1">{CONTACT_CONTENT.errorService}</p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message (Optional)</label>
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{CONTACT_CONTENT.fieldMessage}</label>
                 <textarea 
                   id="message" 
                   name="message" 
@@ -222,7 +232,7 @@ export default function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   className="w-full px-4 py-2.5 border border-gray-200 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-[#4B58FF] focus:border-transparent transition-colors duration-200 bg-white resize-none"
-                  placeholder="Tell us more about your requirements..."
+                  placeholder={CONTACT_CONTENT.placeholderMessage}
                 />
               </div>
 
@@ -230,7 +240,7 @@ export default function Contact() {
                 type="submit" 
                 className="w-full bg-[#4B58FF] text-white py-3 rounded-xl font-semibold hover:bg-[#3542E0] transition-colors duration-200 flex items-center justify-center gap-2"
               >
-                Send via WhatsApp <MessageCircle size={18} />
+                {CONTACT_CONTENT.submitButton} <MessageCircle size={18} />
               </button>
             </form>
           </div>
